@@ -229,3 +229,51 @@ The code for making predictions on my final model with certainty percentages is 
 The predictions and certainty probabilities are displayed in the html version of the Ipython notebook in an easy to understand manner and significantly better than what would be possible here.
 
 The correct predictions had very high probabilities (all of them near or above 90%). The incorrect predictions usually either had probabilities around 50% or much lower. There was one case, in the 11th image, in which the image was inaccurately classified and had a 92% certainty. This was an image of a pedestrian crossing, classified as road work, which, due to the blurriness of the image, could be part of the reason the image was misclassified.
+
+![alt text][image4]
+
+This sign was classified correctly with 94% certainty. This was somewhat surprising, considering the sign was skewed and shadowed.
+
+![alt text][image5]
+
+This sign was also classified correctly with 100% certainty, which wasn't surprising considering the sign was clearly visible and undistorted.
+
+![alt text][image6]
+
+This sign was also classified correctly with 88% certainty. The sign was mostly visible, other than being slightly obscured.
+
+![alt text][image7]
+
+This sign was not classified correctly, nor was the correct classification in the top 5 predictions. However, none of the incorrect predictions were above 50% certainty. This may be due to the sign being shifted up in the image.
+
+![alt text][image8]
+
+This sign was classified incorrectly as well, with none of the predictions being correct. However, in this case, the noise in the image as well as the slight shift in the sign's position and the scaling of it might account for the incorrect predictions.
+
+![alt text][image9]
+
+This sign was classified incorrectly, but it is not surprising considering this sign was not in the dataset (I did not realize the class I gave this sign was for a different sign).
+
+![alt text][image10]
+
+This image was classified incorrectly, which might be due to the fact that there were three signs in the image. This was done on purpose to see how the classifier would behave in this situation, considering the dataset only had images with individual signs.
+
+![alt text][image11]
+
+This image was classified incorrectly, which is no doubt due to the different shape of the sign. The sign in the dataset is triangular, while this sign is circular. When choosing internet images, I didn't realize the signs were different.
+
+![alt text][image12]
+
+This image was not classified correctly, although the correct prediction was in the the top 5 predictions with a probability of 2%, which is very low. This is probably due to the fact that the sign is squeezed along the x-axis and the model was not trained on photos of signs taken far from the normal vector of the sign.
+
+![alt text][image13]
+
+This image was also not classified correctly, but had a similar situation to the previous image, its correct prediction was in the top 5. This is probably due to a similar reason as the previous image, as well as the fact that there was another smaller different sign visible in the picture.
+
+![alt text][image14]
+
+Surprisingly, this image was not classified correctly, although it appeared to be an easy to classify image. It is unclear why the classifier could not correctly classify this image, and even provided a high certainty prediction (92%) on a class that is similar, but clearly not the same.
+
+![alt text][image15]
+
+This image was also not classified correctly and the predictions all had low certainties, which is probably due to the fact that there was more than one sign in the image.
