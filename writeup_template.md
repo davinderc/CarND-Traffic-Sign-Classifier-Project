@@ -1,4 +1,4 @@
-**Build a Traffic Sign Recognition Project**
+## **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -27,21 +27,21 @@ The goals / steps of this project are the following:
 [image14]: ./writeup/27pedestrian.jpg "Traffic Sign 11"
 [image15]: ./writeup/36aheadRight.jpg "Traffic Sign 12"
 
-## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Rubric Points
+I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+### Writeup / README
 
 This is the writeup/README and here is a link to my [project code](https://github.com/davinderc/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_ClassifierGPUTrainedFinal.ipynb)
 This project was undertaken as part of a three-term course in artificial intelligence and computer vision for self-driving cars, offered by Udacity through their online platform.
 
-###Files for submission
+#### Submission Files
 The files for submission included in the github link include the Traffic_Sign_Classifier.ipynb notebook (with all questions answered and all code cells executed and displaying output), an html export of the project with the name report.html, additional images used in the ./writeup/ folder, and this writeup markdown file.
 
-###Data Set Summary & Exploration
+#### Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+##### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 The code for this step is contained in the fifth code cell of the IPython notebook. I used numpy to obtain the information, since I had some knowledge of it from the previous project:
 
@@ -50,7 +50,7 @@ The code for this step is contained in the fifth code cell of the IPython notebo
 * The shape of a traffic sign image is 32x32x3 (3 color channels, RGB).
 * The number of unique classes/labels in the data set is 43, although the output of the cell shows 42, as I forgot to add 1 for the class represented by the number 0.
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+##### 2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
 The code for this step is contained in the sixth code cell of the IPython notebook.
 
@@ -62,9 +62,9 @@ It is very clear that the dataset is not balanced and most of the images are in 
 
 In addition, I wanted to know what each of the signs looked like, since I don't live in Germany and know there are probably differences from the signs I'm used to. I randomly picked signs of each class and plotted them below the histogram to have an idea of what kinds of signs and image qualities I would be using for classification.
 
-###Design and Test a Model Architecture
+#### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+##### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
 The code for this step is contained in the seventh code cell of the IPython notebook.
 
@@ -77,7 +77,7 @@ Here is an example of a traffic sign image before and after normalizing. Of cour
 
 Finally I shuffled the data in the ninth code cell.
 
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+##### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
 There was no code for splitting the data into training and validation sets, since at this point the datasets were provided as three files: training, validation, and test sets.  
 
@@ -85,7 +85,7 @@ My final training set had 34799 images. My validation set and test set had 4410 
 
 I decided not to augment my dataset, mostly due to not having time to spend on learning how to augment it and how to make use of the available libraries to do this. However, towards the end of the course, I intend to go back and improve these implementations, including augmenting the dataset. This would include mirroring, rotating, scaling, and otherwise altering images (adding noise, changing lighting, etc.) in ways that allow them to still be recognizable as their original classes, or even as other classes. This would make the classifier network better able to handle images taken from different situations.
 
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+##### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the eleventh cell of the Ipython notebook. The model was based closely on the LeNet architecture used in a previous neural network exercise in the course. The weights and bias values were set using the TensorFlow truncated normal function, with a mean of 0 and standard deviation of 0.05. These values seemed to result in the best and fastest training accuracy results.
 
@@ -113,7 +113,7 @@ My final model consisted of the following layers:
 
 
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+##### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the fifteenth cell of the Ipython notebook, with some additional relevant code in the previous three code cells, including an evaluation function for measuring accuracy, placeholders and constants to be used during training, and optimization settings to enhance training.
 
@@ -127,7 +127,7 @@ To observe training, batch accuracy was used on the training set and for the val
 
 
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+##### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the 14th code cell of the Ipython notebook. The evaluate function simply takes a dataset, splits it into batches, calculates accuracies on those batches, and then returns a total accuracy based on the batches used. In order to calculate test set accuracy, the evaluate function's code was repeated in code cell 17, along with additional code in cells 16 and 18, due to some difficulties I had evaluating the test set. The evaluation on the test set was run more than once, but not with the intent to improve accuracy by modifying the model. This was done only due to some difficulties in debugging the saving and loading of the model and its weights. Saving was only done once after a training run was completed, but I did not understand too well how to restore the model and its weights, so I had to look up documentation and do a little trial and error to find out the proper way to do this, before I was consistently showing the original test set accuracy, confirming that I had managed to reload the original weights.
 
@@ -171,9 +171,9 @@ I chose the LeNet architecture because I thought that if it was able to detect h
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 The final model's training accuracy was somewhat surprising, as it showed 100% accuracy, which would seem to suggest that it was perfectly fit to the training dataset. However, since the validation accuracy (96.0%) did not decrease, other than a slight oscillation, I took this to mean that the model was just really well trained for this application. The test set accuracy of 95.4% was only 0.6% below the validation accuracy, and this dataset was never used while the network was being modified, I felt that this meant the model had generalized very well for the dataset I had used for training.
 
-###Test a Model on New Images
+#### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+##### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Below are the German traffic signs that I found on the web. Since the images I found had multiple signs, I decided to crop out and scale 12 signs, in order to have a larger personal test set. These images might be difficult to classify in general, because I realized afterwards that the cropping and scaling might be different from that done for the training set.
 
@@ -207,7 +207,7 @@ The eleventh image should be fairly easy to classify, as the sign is clear and a
 
 The twelfth and last image will probably be more difficult to classify due to the sign's size in the image.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+##### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 The code for making predictions on my final model is located in the twenty-second cell of the Ipython notebook.
 
@@ -215,7 +215,7 @@ The results of the prediction were displayed beneath the 22nd code cell as an ar
 
 The model was able to correctly guess 3 of the 12 traffic signs, which gives an accuracy of 25%. This does not compare favorably to the accuracy on the test set of 95.4%. This is very likely due to the way the internet images were selected and cropped/scaled. I believe that having a standard for cropping and scaling would increase that accuracy significantly. In addition, choosing images using the same criteria as those used for selecting the test set would improve the accuracy as well, since a lot of the images I chose had either a skew, some noise in the image, or some obscuring of the sign. The images that were correctly predicted seemed to resemble those found in the training set, which would explain the correct classification.
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+##### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model with certainty percentages is located in the 25th cell of the Ipython notebook.
 
